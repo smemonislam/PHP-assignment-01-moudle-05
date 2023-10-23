@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 define("BASE_URL", "http://localhost:3000/public");
 
 ?>

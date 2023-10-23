@@ -1,4 +1,5 @@
 <?php
+session_start();
 $filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
 if (file_exists($filePath) && is_readable($filePath)) {
     $allRegistrations = json_decode(file_get_contents($filePath), true);
@@ -9,7 +10,7 @@ if (file_exists($filePath) && is_readable($filePath)) {
 <?php require_once("../header/header.php"); ?>
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 mt-5">
 
             <?php if (isset($_SESSION['success'])) :  ?>
                 <div class="alert alert-success"><?php echo $_SESSION['success']; ?></div>
