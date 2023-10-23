@@ -1,7 +1,6 @@
 <?php
 
-
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
     function test_input($data)
     {
         $data = trim($data);
@@ -35,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if (file_exists($filePath) && is_writable($filePath)) {
             $data = json_decode(file_get_contents($filePath), true) ?? [];
-            
+
             foreach ($data as $item) {
                 if ($item['email'] == $email) {
                     throw new Exception('Email Already Exists!');
@@ -49,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $maxId = $item['id'];
                 }
             }
-            
+
             $id = $maxId + 1;
 
             $registerData = [
@@ -99,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         <input type="password" name="password" class="form-control" id="inputPassword3">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" name="reigster">Registration</button>
+                <button type="submit" class="btn btn-primary" name="register">Registration</button>
             </form>
         </div>
     </div>

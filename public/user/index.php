@@ -30,9 +30,9 @@ if (file_exists($filePath) && is_readable($filePath)) {
                         foreach ($allRegistrations as $data) :
                     ?>
                             <tr>
-                                <td><?php echo $data['id']; ?></td>
-                                <td><?php echo $data['username']; ?></td>
-                                <td><?php echo $data['email']; ?></td>
+                                <td><?php echo $data['id'] ?? ""; ?></td>
+                                <td><?php echo $data['username'] ?? ""; ?></td>
+                                <td><?php echo $data['email'] ?? ""; ?></td>
                                 <td>
                                     <a href="#" class="btn btn-success btn-sm">Edit</a>
                                     <a href="#" class="btn btn-danger btn-sm">Delete</a>
