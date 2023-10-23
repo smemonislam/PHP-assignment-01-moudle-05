@@ -1,0 +1,1 @@
+[{"id":1,"username":"abc","email":"abc@gmail.com","password":"$2y$10$0R35LcV3Oao3upCHKghIQ.Q2gfvqsFZLMXNrHwSZJ.xxfEHnMR6Qu"}]

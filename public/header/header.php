@@ -1,3 +1,9 @@
+<?php
+session_start();
+define("BASE_URL", "http://localhost:3000/public");
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -25,7 +31,7 @@
                         <a class="nav-link" href="#">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="create.php">Register</a>
+                        <a class="nav-link" href="<?php echo BASE_URL ?>/user/create.php">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Dashboard</a>
