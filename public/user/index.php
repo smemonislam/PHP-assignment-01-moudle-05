@@ -42,7 +42,7 @@ if (file_exists($filePath) && is_readable($filePath)) {
                                 <td>
                                     <a href="create.php" class="btn btn-info btn-sm">Create</a>
                                     <a href="#" class="btn btn-success btn-sm">Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="delete.php?id=<?php echo $student['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>
                         <?php } ?>

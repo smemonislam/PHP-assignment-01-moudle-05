@@ -1,2 +1,0 @@
-[{"id":1,"fname":"Reza","lname":"Hasan","age":"35","class":"12","roll":"1"},{"id":2,"fname":"Ashikur","lname":"Rahman","age":"21","class":"12","roll":"2"},{"id":3,"fname":"Emon","lname":"Islam","age":"27","class":"12","roll":"3"},{"id":4,"fname":"Jahid","lname":"Rahman","age":"20","class":"12","roll":"4"},{"id":5,"fname":"Shahina","lname":"Akther","age":"25","class":"12","roll":"5"},{"id":6,"fname":"&lt;html&gt;Tag&lt;\/html&gt;","lname":"&lt;script&gt;alert(&quot;Hello World&quot;)&lt;\/script&gt;","age":"20","class":"12","roll":"3"}]
-
