@@ -17,6 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
             throw new Exception("The email field is empty!");
         }
 
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception('Email is Invalid!');
+        }
+
         if (empty($password)) {
             throw new Exception("The password field is empty!");
         }
