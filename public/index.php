@@ -1,5 +1,9 @@
-<?php require_once("../header/header.php"); ?>
+<?php require_once("./header/header.php"); ?>
 <?php
+
+if (!$_SESSION['email']) {
+    header('Location:' . BASE_URL . "/login/index.php");
+}
 
 $filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
 if (file_exists($filePath) && is_readable($filePath)) {
@@ -46,4 +50,4 @@ if (file_exists($filePath) && is_readable($filePath)) {
         </div>
     </div>
 </section>
-<?php require_once("../header/footer.php"); ?>
+<?php require_once("./header/footer.php"); ?>

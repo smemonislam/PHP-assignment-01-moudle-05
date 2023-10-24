@@ -19,8 +19,8 @@ define("BASE_URL", "http://localhost:3000/public");
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand" href="<?php echo BASE_URL; ?>/user/index.php">
-                <img src="../img/ostad-app-logo-vector.png" alt="">
+            <a class="navbar-brand" href="<?php echo BASE_URL; ?>">
+                <img src="<?php echo BASE_URL; ?>/img/ostad-app-logo-vector.png" alt="">
             </a>
             <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,13 +28,16 @@ define("BASE_URL", "http://localhost:3000/public");
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL; ?>/user/index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL; ?>">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo BASE_URL; ?>/login/index.php"">Login</a>
                     </li>
                     <li class=" nav-item">
-                            <a class="nav-link" href="<?php echo BASE_URL; ?>/user/create.php">Register</a>
+                            <a class="nav-link" href="<?php echo BASE_URL; ?>/logout/index.php"">Logout</a>
+                    </li>
+                    <li class=" nav-item">
+                                <a class="nav-link" href="<?php echo BASE_URL; ?>/registration/create.php">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Dashboard</a>

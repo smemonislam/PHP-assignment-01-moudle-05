@@ -3,7 +3,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
-    function test_input($data)
+    function validated_input($data)
     {
         $data = trim($data);
         $data = stripslashes($data);
@@ -12,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
     }
 
     try {
-        $username = test_input($_POST['username']);
-        $email = test_input($_POST['email']);
-        $password = test_input($_POST['password']);
+        $username   = validated_input($_POST['username']);
+        $email      = validated_input($_POST['email']);
+        $password   = validated_input($_POST['password']);
 
         if (empty($username)) {
             throw new Exception('The username field is empty!');
@@ -71,7 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
 }
 
 ?>
-
 
 
 <section class="vh-100" style="background-color: #eee;">
