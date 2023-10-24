@@ -9,17 +9,34 @@ if (!isset($_SESSION['email'])) {
 $filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
 if (file_exists($filePath) && is_readable($filePath)) {
     $allRegistrations = json_decode(file_get_contents($filePath), true);
+
+    usort($allRegistrations, function ($a, $b) {
+        return $a['id'] - $b['id'];
+    });
 }
+
+
+
+
+
 ?>
 
 <section class="vh-100" style="background-color: #eee;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mt-5">
+                <?php if (isset($_GET['success'])) :  ?>
+                    <div class="alert alert-success">
+                        <?php
+                        echo $_GET['success'];
+                        ?>
+                    </div>
+                <?php endif; ?>
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">#SL</th>
+                            <th scope="col">ID</th>
                             <th scope="col">User Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Action</th>
@@ -27,12 +44,13 @@ if (file_exists($filePath) && is_readable($filePath)) {
                     </thead>
                     <tbody>
 
-                        <?php
-                        if (isset($allRegistrations)) :
+                        <?php if (isset($allRegistrations)) :
+                            $i = 0;
                             foreach ($allRegistrations as $data) :
                         ?>
                                 <tr>
-                                    <td><?php echo $data['id'] ?? ""; ?></td>
+                                    <td><?php echo ++$i; ?></td>
+                                    <td><?php echo $data['id']; ?></td>
                                     <td><?php echo $data['username'] ?? ""; ?></td>
                                     <td><?php echo $data['email'] ?? ""; ?></td>
                                     <td>

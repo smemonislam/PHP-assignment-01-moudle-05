@@ -59,10 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <?php if (isset($_SESSION['success'])) :  ?>
                     <div class="alert alert-success">
-                        <?php
-                        echo $_SESSION['success'];
-                        session_destroy();
-                        ?>
+                        <?php echo $_SESSION['success']; ?>
                     </div>
                 <?php endif; ?>
 
