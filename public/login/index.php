@@ -10,8 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
         return $data;
     }
     try {
-        $_SESSION['loggedin'] = false;
-
         $email      = validated_input($_POST["email"]);
         $password   = validated_input($_POST["password"]);
 
@@ -33,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
                     header("Location:" . BASE_URL);
                 }
             }
-            
-            if (!$_SESSION['loggedin']) {
+
+            if (!isset($_SESSION['loggedin'])) {
                 throw new Exception("Email or Password does'nt match!");
             }
         }

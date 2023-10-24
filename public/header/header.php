@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 define("BASE_URL", "http://localhost:3000/public");
 
 ?>
@@ -30,14 +31,23 @@ define("BASE_URL", "http://localhost:3000/public");
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL; ?>">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_URL; ?>/login/index.php"">Login</a>
-                    </li>
+
+
+                    <?php if (!isset($_SESSION['loggedin'])) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo BASE_URL; ?>/login/index.php">Login</a>
+                        </li>
+                    <?php else : ?>
+                        <li class=" nav-item">
+                            <a class="nav-link" href="<?php echo BASE_URL; ?>/logout/index.php">Logout</a>
+                        </li>
+                    <?php endif; ?>
+                    <!-- <li class=" nav-item">
+                        <a class="nav-link" href="<?php echo BASE_URL; ?>/logout/index.php">Logout</a>
+                    </li> -->
+
                     <li class=" nav-item">
-                            <a class="nav-link" href="<?php echo BASE_URL; ?>/logout/index.php"">Logout</a>
-                    </li>
-                    <li class=" nav-item">
-                                <a class="nav-link" href="<?php echo BASE_URL; ?>/registration/create.php">Register</a>
+                        <a class="nav-link" href="<?php echo BASE_URL; ?>/registration/create.php">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Dashboard</a>
