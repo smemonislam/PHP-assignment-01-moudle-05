@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 define("BASE_URL", "http://localhost:3000/public");
 
 ?>
@@ -11,14 +11,17 @@ define("BASE_URL", "http://localhost:3000/public");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CRUD - Create</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand" href="<?php echo BASE_URL; ?>/user/index.php">Assignment</a>
+            <a class="navbar-brand" href="<?php echo BASE_URL; ?>/user/index.php">
+                <img src="../img/ostad-app-logo-vector.png" alt="">
+            </a>
             <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,10 +31,10 @@ define("BASE_URL", "http://localhost:3000/public");
                         <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL; ?>/user/index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="<?php echo BASE_URL; ?>/login/index.php"">Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_URL; ?>/user/create.php">Register</a>
+                    <li class=" nav-item">
+                            <a class="nav-link" href="<?php echo BASE_URL; ?>/user/create.php">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Dashboard</a>
