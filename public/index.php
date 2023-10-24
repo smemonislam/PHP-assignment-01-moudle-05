@@ -36,7 +36,7 @@ if (file_exists($filePath) && is_readable($filePath)) {
                                     <td><?php echo $data['email'] ?? ""; ?></td>
                                     <td>
                                         <a href="#" class="btn btn-success btn-sm">View</a>
-                                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                        <a href="<?php echo BASE_URL; ?>/user/edit.php?id=<?php echo $data['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
                                         <a href="<?php echo BASE_URL; ?>/user/delete.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
