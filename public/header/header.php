@@ -42,13 +42,13 @@ define("BASE_URL", "http://localhost:3000/public");
                             <a class="nav-link" href="<?php echo BASE_URL; ?>/logout/index.php">Logout</a>
                         </li>
                     <?php endif; ?>
-                    <!-- <li class=" nav-item">
-                        <a class="nav-link" href="<?php echo BASE_URL; ?>/logout/index.php">Logout</a>
-                    </li> -->
 
-                    <li class=" nav-item">
-                        <a class="nav-link" href="<?php echo BASE_URL; ?>/registration/create.php">Register</a>
-                    </li>
+                    <?php if (!isset($_SESSION['loggedin'])) : ?>
+                        <li class=" nav-item">
+                            <a class="nav-link" href="<?php echo BASE_URL; ?>/registration/create.php">Register</a>
+                        </li>
+                    <?php endif; ?>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">Dashboard</a>
                     </li>

@@ -37,7 +37,7 @@ if (file_exists($filePath) && is_readable($filePath)) {
                                     <td>
                                         <a href="#" class="btn btn-success btn-sm">View</a>
                                         <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="<?php echo BASE_URL; ?>/user/delete.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
                         <?php
