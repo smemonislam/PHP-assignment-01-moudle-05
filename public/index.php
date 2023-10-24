@@ -1,6 +1,7 @@
 <?php require_once("./header/header.php"); ?>
 <?php
 
+
 if (!$_SESSION['email']) {
     header('Location:' . BASE_URL . "/login/index.php");
 }

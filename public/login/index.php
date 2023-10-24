@@ -1,5 +1,8 @@
 <?php require_once("../header/header.php"); ?>
 <?php
+if (isset($_SESSION['email'])) {
+    header('Location:' . BASE_URL);
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     function validated_input($data)
@@ -13,31 +16,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
         $email      = validated_input($_POST["email"]);
         $password   = validated_input($_POST["password"]);
 
-        if (empty($email)) {
-            throw new Exception("The email field is empty!");
+        if (empty($email) || empty($password)) {
+            throw new Exception("Both email and password are required fields.");
         }
 
+        // Verify the email format
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new Exception('Email is Invalid!');
+            throw new Exception('Invalid email format.');
         }
 
-        if (empty($password)) {
-            throw new Exception("The password field is empty!");
-        }
         $filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
         if (file_exists($filePath) && is_readable($filePath)) {
             $data = json_decode(file_get_contents($filePath), true) ?? [];
 
             foreach ($data as $item) {
                 if ($email == $item['email'] && password_verify($password, $item['password'])) {
-                    $_SESSION['loggedin'] = true;
-                    $_SESSION['email'] = $email;
+                    $_SESSION['loggedin']   = true;
+                    $_SESSION['email']      = $email;
+                    $_SESSION['user_id']    = $item['id'];
                     header("Location:" . BASE_URL);
                 }
             }
 
             if (!isset($_SESSION['loggedin'])) {
-                throw new Exception("Email or Password does'nt match!");
+                throw new Exception("Email or password is incorrect.");
             }
         }
     } catch (Exception $e) {

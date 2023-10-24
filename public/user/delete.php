@@ -11,6 +11,6 @@ if (file_exists($filePath)) {
         }
     }
 
-    file_put_contents($filePath, json_encode($data));
-    header("location:http://localhost:3000/public");
+    file_put_contents($filePath, json_encode($data), LOCK_EX);
+    header("location:http://localhost:3000/public/index.php");
 }

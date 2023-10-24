@@ -1,6 +1,9 @@
 <?php require_once("../header/header.php"); ?>
 
 <?php
+if (isset($_SESSION['email'])) {
+    header('Location:' . BASE_URL);
+}
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
     function validated_input($data)
@@ -16,21 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
         $email      = validated_input($_POST['email']);
         $password   = validated_input($_POST['password']);
 
-        if (empty($username)) {
-            throw new Exception('The username field is empty!');
-        }
-
-        if (empty($email)) {
-            throw new Exception('The email field is empty!');
+        if (empty($username) || empty($email) || empty($password)) {
+            throw new Exception('All fields are required.');
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new Exception('Email is Invalid!');
         }
 
-        if (empty($password)) {
-            throw new Exception('The password field is empty!');
-        }
 
         $filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
 
@@ -53,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
 
             $id = $maxId + 1;
 
+
             $registerData = [
                 'id' => $id,
                 'username' => $username,
@@ -61,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
             ];
 
             array_push($data, $registerData);
-            file_put_contents($filePath, json_encode($data));
+            file_put_contents($filePath, json_encode($data), LOCK_EX);
             $_SESSION['success'] = "Successfully registered.";
             header("location:" . BASE_URL . "/login/index.php");
         }
@@ -112,13 +109,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
                                         </div>
                                     </div>
 
-                                    <!-- <div class="d-flex flex-row align-items-center mb-4">
+                                    <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
                                             <input type="password" id="form3Example4cd" class="form-control" />
                                             <label class="form-label" for="form3Example4cd">Repeat your password</label>
                                         </div>
-                                    </div> -->
+                                    </div>
 
                                     <div class="form-check d-flex justify-content-center mb-5">
                                         <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
