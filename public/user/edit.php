@@ -1,6 +1,11 @@
 <?php require_once("../header/header.php"); ?>
 
 <?php
+
+if (!isset($_SESSION['email']) && !isset($_SESSION['loggedin'])) {
+    header('Location:' . BASE_URL);
+}
+
 $filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
 
 $id = $_GET["id"];

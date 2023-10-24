@@ -1,4 +1,8 @@
 <?php
+if (!isset($_SESSION['email']) && !isset($_SESSION['loggedin'])) {
+    header('Location:' . BASE_URL);
+}
+
 
 $id = $_GET['id'];
 $filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
@@ -12,6 +16,5 @@ if (file_exists($filePath)) {
     }
 
     file_put_contents($filePath, json_encode($data), LOCK_EX);
-    //$_SESSION['delete-success'] = "Delete Successfully.";
     header("location:http://localhost:3000/public/index.php?success=Delete Successfully.");
 }
