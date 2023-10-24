@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 
 define("BASE_URL", "http://localhost:3000/public");
@@ -14,6 +15,100 @@ define("BASE_URL", "http://localhost:3000/public");
     <title>CRUD - Create</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
+    <style>
+        body {
+            margin-top: 20px;
+        }
+
+        .icon-box.medium {
+            font-size: 20px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .icon-box {
+            font-size: 30px;
+            margin-bottom: 33px;
+            display: inline-block;
+            color: #ffffff;
+            height: 65px;
+            width: 65px;
+            line-height: 65px;
+            background-color: #59b73f;
+            text-align: center;
+            border-radius: 0.3rem;
+        }
+
+        .social-icon-style2 li a {
+            display: inline-block;
+            font-size: 14px;
+            text-align: center;
+            color: #ffffff;
+            background: #59b73f;
+            height: 41px;
+            line-height: 41px;
+            width: 41px;
+        }
+
+        .rounded-3 {
+            border-radius: 0.3rem !important;
+        }
+
+        .social-icon-style2 {
+            margin-bottom: 0;
+            display: inline-block;
+            padding-left: 10px;
+            list-style: none;
+        }
+
+        .social-icon-style2 li {
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        a,
+        a:active,
+        a:focus {
+            color: #616161;
+            text-decoration: none;
+            transition-timing-function: ease-in-out;
+            -ms-transition-timing-function: ease-in-out;
+            -moz-transition-timing-function: ease-in-out;
+            -webkit-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+            transition-duration: .2s;
+            -ms-transition-duration: .2s;
+            -moz-transition-duration: .2s;
+            -webkit-transition-duration: .2s;
+            -o-transition-duration: .2s;
+        }
+
+        .text-secondary,
+        .text-secondary-hover:hover {
+            color: #59b73f !important;
+        }
+
+        .display-25 {
+            font-size: 1.4rem;
+        }
+
+        .text-primary,
+        .text-primary-hover:hover {
+            color: #ff712a !important;
+        }
+
+        p {
+            margin: 0 0 20px;
+        }
+
+        .mb-1-6,
+        .my-1-6 {
+            margin-bottom: 1.6rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -53,10 +148,20 @@ define("BASE_URL", "http://localhost:3000/public");
                         <a class="nav-link" href="#">Dashboard</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item active" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
