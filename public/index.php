@@ -6,19 +6,6 @@ if (!isset($_SESSION['email'])) {
     header('Location:' . BASE_URL . "/login/index.php");
 }
 
-$filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
-if (file_exists($filePath) && is_readable($filePath)) {
-    $allRegistrations = json_decode(file_get_contents($filePath), true);
-
-    usort($allRegistrations, function ($a, $b) {
-        return $a['id'] - $b['id'];
-    });
-}
-
-
-
-
-
 ?>
 
 <section class="vh-100" style="background-color: #eee;">
