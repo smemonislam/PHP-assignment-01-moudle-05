@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION['email']) && !isset($_SESSION['loggedin'])) {
-    header('Location:' . BASE_URL);
+    header('Location:http://localhost:3000/public/index.php');
 }
 
 
