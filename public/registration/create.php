@@ -1,9 +1,7 @@
 <?php
 require_once("../header/header.php");
 require_once("../../database/config.php");
-?>
 
-<?php
 // Check if the user is already logged in, redirect if necessary
 if (isset($_SESSION['email'])) {
     header('Location:' . BASE_URL);
@@ -142,7 +140,4 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
     <!-- Jumbotron -->
 </section>
 <!-- Section: Design Block -->
-
-
-
 <?php require_once("../header/footer.php"); ?>

@@ -1,9 +1,6 @@
 <?php
 require_once("../header/header.php");
 require_once("../../database/config.php");
-?>
-
-<?php
 
 // Check if the user is logged in
 if (!isset($_SESSION['email']) || !isset($_SESSION['loggedin'])) {
@@ -54,9 +51,6 @@ try {
 }
 
 ?>
-
-
-
 
 <!-- Section: Design Block -->
 <section class="text-center">
@@ -138,7 +132,5 @@ try {
     </div>
 </section>
 <!-- Section: Design Block -->
-
-
 
 <?php require_once("../header/footer.php"); ?>
