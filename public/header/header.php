@@ -2,7 +2,11 @@
 ob_start();
 session_start();
 
+// Base URL
 define("BASE_URL", "http://localhost:3000/public");
+
+// Define the file path as a constant
+define("DB_FILE_PATH", "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt");
 
 ?>
 

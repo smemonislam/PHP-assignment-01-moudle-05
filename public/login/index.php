@@ -1,20 +1,18 @@
-<?php require_once("../header/header.php"); ?>
 <?php
+require_once("../header/header.php");
+require_once("../../database/config.php");
+
+// Check if the user is already logged in, redirect if necessary
 if (isset($_SESSION['email'])) {
     header('Location:' . BASE_URL);
+    exit();
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
-    function validated_input($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+// Main code
+if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["login"])) {
     try {
-        $email      = validated_input($_POST["email"]);
-        $password   = validated_input($_POST["password"]);
+        $email      = validatedInput($_POST["email"]);
+        $password   = validatedInput($_POST["password"]);
 
         if (empty($email) || empty($password)) {
             throw new Exception("Both email and password are required fields.");
@@ -25,23 +23,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
             throw new Exception('Invalid email format.');
         }
 
-        $filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
-        if (file_exists($filePath) && is_readable($filePath)) {
-            $data = json_decode(file_get_contents($filePath), true) ?? [];
+        // Read the user data from the database file
+        $data = readDatabaseFile(DB_FILE_PATH);
 
-            foreach ($data as $item) {
-                if ($email == $item['email'] && password_verify($password, $item['password'])) {
-                    $_SESSION['loggedin']   = true;
-                    $_SESSION['email']      = $email;
-                    $_SESSION['user_id']    = $item['id'];
-                    header("Location:" . BASE_URL . "/dashboard/index.php");
-                }
-            }
-
-            if (!isset($_SESSION['loggedin'])) {
-                throw new Exception("Email or password is incorrect.");
+        // Check if the provided credentials match any user in the database
+        foreach ($data as $item) {
+            if ($email == $item['email'] && password_verify($password, $item['password'])) {
+                $_SESSION['loggedin']   = true;
+                $_SESSION['email']      = $email;
+                $_SESSION['user_id']    = $item['id'];
+                header("Location:" . BASE_URL . "/dashboard/index.php");
+                exit();
             }
         }
+
+        // If no match was found, display an error message
+        throw new Exception("Email or password is incorrect.");
     } catch (Exception $e) {
         $errorMessage = $e->getMessage();
     }

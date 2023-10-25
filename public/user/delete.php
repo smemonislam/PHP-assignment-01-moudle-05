@@ -1,13 +1,17 @@
 <?php
-if (!isset($_SESSION['email']) && !isset($_SESSION['loggedin'])) {
-    header('Location:http://localhost:3000/public/index.php');
+require_once("../header/header.php");
+require_once("../../database/config.php");
+
+if (!isset($_SESSION['email']) || !isset($_SESSION['loggedin'])) {
+    header('Location: ' . BASE_URL);
+    exit();
 }
 
 
 $id = $_GET['id'];
-$filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
-if (file_exists($filePath)) {
-    $data = json_decode(file_get_contents($filePath), true) ?? [];
+
+try {
+    $data = readDatabaseFile(DB_FILE_PATH);
 
     foreach ($data as $key => $item) {
         if ($item['id'] == $id) {
@@ -15,6 +19,12 @@ if (file_exists($filePath)) {
         }
     }
 
-    file_put_contents($filePath, json_encode($data), LOCK_EX);
-    header("location:http://localhost:3000/public/index.php?success=Delete Successfully.");
+    writeDatabaseFile(DB_FILE_PATH, $data);
+
+    // Redirect to a success page with a message
+    $successMessage = 'Delete Successfully.';
+    header("Location: " . BASE_URL . "/index.php?success=" . urlencode($successMessage));
+    exit();
+} catch (Exception $e) {
+    $errorMessage = $e->getMessage();
 }

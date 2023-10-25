@@ -1,72 +1,69 @@
-<?php require_once("../header/header.php"); ?>
+<?php
+require_once("../header/header.php");
+require_once("../../database/config.php");
+?>
 
 <?php
+// Check if the user is already logged in, redirect if necessary
 if (isset($_SESSION['email'])) {
     header('Location:' . BASE_URL);
+    exit();
 }
 
+// Main code
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
-    function validated_input($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-
     try {
-        $username   = validated_input($_POST['username']);
-        $email      = validated_input($_POST['email']);
-        $password   = validated_input($_POST['password']);
+        $username   = validatedInput($_POST['username']);
+        $email      = validatedInput($_POST['email']);
+        $password   = validatedInput($_POST['password']);
 
         if (empty($username) || empty($email) || empty($password)) {
             throw new Exception('All fields are required.');
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new Exception('Email is Invalid!');
+            throw new Exception('Email is invalid.');
         }
 
+        // Read the existing data from the database file
+        $data = readDatabaseFile(DB_FILE_PATH);
 
-        $filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
-
-        if (file_exists($filePath) && is_writable($filePath)) {
-            $data = json_decode(file_get_contents($filePath), true) ?? [];
-
-            foreach ($data as $item) {
-                if ($item['email'] == $email) {
-                    throw new Exception('Email Already Exists!');
-                }
+        // Check if the email already exists
+        foreach ($data as $item) {
+            if ($item['email'] === $email) {
+                throw new Exception('Email Already Exists!');
             }
-
-            // Generate a unique ID by finding the maximum ID in the existing data
-            $maxId = 0;
-            foreach ($data as $item) {
-                if ($item['id'] > $maxId) {
-                    $maxId = $item['id'];
-                }
-            }
-
-            $id = $maxId + 1;
-
-
-            $registerData = [
-                'id' => $id,
-                'username' => $username,
-                'email' => $email,
-                'password' => password_hash($password, PASSWORD_DEFAULT),
-            ];
-
-            array_push($data, $registerData);
-            file_put_contents($filePath, json_encode($data), LOCK_EX);
-            $_SESSION['success'] = "Successfully registered.";
-            header("location:" . BASE_URL . "/login/index.php");
         }
+
+        // Generate a unique ID by finding the maximum ID in the existing data
+        $id = 1;
+        foreach ($data as $item) {
+            if ($item['id'] >= $id) {
+                $id = $item['id'] + 1;
+            }
+        }
+
+        // Create a new user and add it to the data array
+        $newUser = [
+            'id'        => $id,
+            'username'  => $username,
+            'email'     => $email,
+            'password'  => password_hash($password, PASSWORD_DEFAULT),
+        ];
+
+        $data[] = $newUser;
+
+        // Write the updated data back to the database file
+        writeDatabaseFile(DB_FILE_PATH, $data);
+
+        // Set a success message in the session and redirect to the login page
+        $_SESSION['success'] = 'Successfully registered.';
+        header("location:" . BASE_URL . "/login/index.php");
+        exit();
     } catch (Exception $e) {
         $errorMessage = $e->getMessage();
     }
 }
-
 ?>
 <!-- Section: Design Block -->
 <section class="text-center text-lg-start">

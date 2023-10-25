@@ -1,75 +1,62 @@
-<?php require_once("../header/header.php"); ?>
+<?php
+require_once("../header/header.php");
+require_once("../../database/config.php");
+?>
 
 <?php
 
-if (!isset($_SESSION['email']) && !isset($_SESSION['loggedin'])) {
-    header('Location:' . BASE_URL);
+// Check if the user is logged in
+if (!isset($_SESSION['email']) || !isset($_SESSION['loggedin'])) {
+    header('Location: ' . BASE_URL);
+    exit();
 }
-
-$filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
 
 $id = $_GET["id"];
-if (file_exists($filePath) && is_readable($filePath)) {
-    $data = json_decode(file_get_contents($filePath), true) ?? [];
-    foreach ($data as $key => $item) {
-        if ($item["id"] == $id) {
-            $value = $item;
-            break;
-        }
-    }
-}
 
+// Main code
+try {
+    $data = readDatabaseFile(DB_FILE_PATH);
+    $item = findDataById($data, $id);
 
-if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["update"])) {
-    try {
-        function validated_input($data)
-        {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
-
-        $username   = validated_input($_POST['username']);
-        $email      = validated_input($_POST['email']);
-        $password   = validated_input($_POST['password']);
+    if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["update"])) {
+        $username   = validatedInput($_POST['username']);
+        $email      = validatedInput($_POST['email']);
+        $password   = validatedInput($_POST['password']);
 
         if (empty($username) || empty($email) || empty($password)) {
             throw new Exception('All fields are required.');
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new Exception('Email is Invalid!');
+            throw new Exception('Email is invalid.');
         }
 
-        $filePath = "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt";
-        if (file_exists($filePath) && is_writable($filePath)) {
-            $data = json_decode(file_get_contents($filePath), true) ?? [];
-
-            foreach ($data as $key => $item) {
-                if ($item["id"] == $id) {
-                    unset($data[$key]);
-                    $registerData = [
-                        'id'        => $id,
-                        'username'  => $username,
-                        'email'     => $email,
-                        'password'  => password_hash($password, PASSWORD_DEFAULT),
-                    ];
-                    break;
-                }
+        // Update the data
+        foreach ($data as $key => &$item) {
+            if ($item["id"] == $id) {
+                $item = [
+                    'id' => $id,
+                    'username' => $username,
+                    'email' => $email,
+                    'password' => password_hash($password, PASSWORD_DEFAULT),
+                ];
+                break;
             }
-
-            array_push($data, $registerData);
-            file_put_contents($filePath, json_encode($data), LOCK_EX);
-            header("location:" . BASE_URL . "/dashboard/index.php?success=Update Successfully.");
         }
-    } catch (Exception $e) {
-        $errorMessage = $e->getMessage();
+
+        writeDatabaseFile(DB_FILE_PATH, $data);
+        $successMessage = 'Update Successfully.';
+        header("Location: " . BASE_URL . "/dashboard/index.php?success=" . urlencode($successMessage));
+        exit();
     }
+} catch (Exception $e) {
+    $errorMessage = $e->getMessage();
 }
 
-
 ?>
+
+
+
 
 <!-- Section: Design Block -->
 <section class="text-center">
@@ -96,12 +83,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["update"])) {
                                 <div class="alert alert-danger"><?php echo $errorMessage; ?></div>
                             <?php endif; ?>
                             <div class="form-outline mb-4">
-                                <input type="text" name="username" id="userName" class="form-control" value="<?php echo $value['username']; ?>" />
+                                <input type="text" name="username" id="userName" class="form-control" value="<?php echo $item['username']; ?>" />
                                 <label class="form-label" for="userName">Your Userame</label>
                             </div>
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <input type="email" name="email" id="email3c" class="form-control" value="<?php echo $value['email']; ?>" />
+                                <input type="email" name="email" id="email3c" class="form-control" value="<?php echo $item['email']; ?>" />
                                 <label class="form-label" for="email3c">Your Email</label>
                             </div>
 
