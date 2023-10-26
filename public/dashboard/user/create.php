@@ -4,7 +4,7 @@ require_once("../../config.php");
 
 // Check if the user is already logged in, redirect if necessary
 if (!isset($_SESSION['email'])) {
-    header('Location:' . BASE_URL);
+    header('Location:' . BASE_URL . "/login/index.php");
     exit();
 }
 
@@ -63,9 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
     } catch (Exception $e) {
         $errorMessage = $e->getMessage();
     }
-
-
-    
 }
 ?>
 <!-- Section: Design Block -->

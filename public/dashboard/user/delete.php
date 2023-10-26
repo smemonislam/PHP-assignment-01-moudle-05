@@ -3,7 +3,7 @@ require_once("../../header/header.php");
 require_once("../../config.php");
 
 if (!isset($_SESSION['email']) || !isset($_SESSION['loggedin'])) {
-    header('Location: ' . BASE_URL . "/dashboard/index.php");
+    header('Location:' . BASE_URL . "/login/index.php");
     exit();
 }
 

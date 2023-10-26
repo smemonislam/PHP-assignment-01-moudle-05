@@ -4,7 +4,7 @@ require_once("../../config.php");
 
 // Check if the user is logged in
 if (!isset($_SESSION['email']) || !isset($_SESSION['loggedin'])) {
-    header('Location: ' . BASE_URL);
+    header('Location:' . BASE_URL . "/login/index.php");
     exit();
 }
 
