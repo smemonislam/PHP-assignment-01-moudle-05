@@ -1,9 +1,9 @@
 <?php
-require_once("../header/header.php");
-require_once("../config.php");
+require_once("../../header/header.php");
+require_once("../../config.php");
 
 // Check if the user is already logged in, redirect if necessary
-if (isset($_SESSION['email'])) {
+if (!isset($_SESSION['email'])) {
     header('Location:' . BASE_URL);
     exit();
 }
@@ -13,9 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
     try {
         $username   = validatedInput($_POST['username']);
         $email      = validatedInput($_POST['email']);
+        $role       = validatedInput($_POST['role']);
         $password   = validatedInput($_POST['password']);
 
-        if (empty($username) || empty($email) || empty($password)) {
+        if (empty($username) || empty($email) || empty($password) || empty($role)) {
             throw new Exception('All fields are required.');
         }
 
@@ -46,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
             'id'        => $id,
             'username'  => $username,
             'email'     => $email,
-            'role'      => 'user',
+            'role'      => $role,
             'password'  => password_hash($password, PASSWORD_DEFAULT),
         ];
 
@@ -57,11 +58,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
 
         // Set a success message in the session and redirect to the login page
         $_SESSION['success'] = 'Successfully registered.';
-        header("location:" . BASE_URL . "/login/index.php");
+        header("location:" . BASE_URL . "/dashboard/index.php");
         exit();
     } catch (Exception $e) {
         $errorMessage = $e->getMessage();
     }
+
+
+    
 }
 ?>
 <!-- Section: Design Block -->
@@ -89,6 +93,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
                                 <input type="email" name="email" id="form3Example3c" class="form-control" />
                                 <label class="form-label" for="form3Example3c">Your Email</label>
                             </div>
+
+                            <!-- Role input -->
+                            <select class="browser-default form-select mb-4" name="role">
+                                <option value="" selected>User Role</option>
+                                <option value="admin">Admin</option>
+                                <option value="editor">Editor</option>
+                                <option value="user">User</option>
+                            </select>
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
@@ -141,4 +153,4 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
     <!-- Jumbotron -->
 </section>
 <!-- Section: Design Block -->
-<?php require_once("../header/footer.php"); ?>
+<?php require_once("../../header/footer.php"); ?>

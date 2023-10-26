@@ -1,6 +1,6 @@
 <?php
 require_once("../header/header.php");
-require_once("../../database/config.php");
+require_once("../config.php");
 
 // Check if the user is already logged in, redirect if necessary
 if (isset($_SESSION['email'])) {
@@ -32,7 +32,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["login"])) {
                 $_SESSION['loggedin']   = true;
                 $_SESSION['email']      = $email;
                 $_SESSION['user_id']    = $item['id'];
-                header("Location:" . BASE_URL . "/dashboard/index.php");
+                $_SESSION['role']       = $item['role'];
+
+
+                if ($_SESSION['role'] == 'admin') {
+                    header("Location:" . BASE_URL . "/dashboard/index.php");
+                } else if ($_SESSION['role'] == 'editor') {
+                    header("Location:" . BASE_URL . "/dashboard/index.php");
+                } else {
+                    header("Location:" . BASE_URL);
+                }
                 exit();
             }
         }

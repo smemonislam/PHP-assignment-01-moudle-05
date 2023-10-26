@@ -40,3 +40,8 @@ function findDataById($data, $id)
     }
     return null;
 }
+
+function isAdmin()
+{
+    return ('admin' == $_SESSION['role']);
+}

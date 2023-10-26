@@ -1,12 +1,15 @@
 <?php
-require_once("../header/header.php");
-require_once("../../database/config.php");
+require_once("../../header/header.php");
+require_once("../../config.php");
 
 // Check if the user is logged in
 if (!isset($_SESSION['email']) || !isset($_SESSION['loggedin'])) {
     header('Location: ' . BASE_URL);
     exit();
 }
+
+
+
 
 $id = $_GET["id"];
 
@@ -15,12 +18,18 @@ try {
     $data = readDatabaseFile(DB_FILE_PATH);
     $item = findDataById($data, $id);
 
+    if (!$item) {
+        header("Location:" . BASE_URL . "/dashboard/index.php");
+        exit();
+    }
+
     if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["update"])) {
         $username   = validatedInput($_POST['username']);
         $email      = validatedInput($_POST['email']);
+        $role       = validatedInput($_POST['role']);
         $password   = validatedInput($_POST['password']);
 
-        if (empty($username) || empty($email) || empty($password)) {
+        if (empty($username) || empty($email) || empty($password) || empty($role)) {
             throw new Exception('All fields are required.');
         }
 
@@ -32,10 +41,11 @@ try {
         foreach ($data as $key => &$item) {
             if ($item["id"] == $id) {
                 $item = [
-                    'id' => $id,
-                    'username' => $username,
-                    'email' => $email,
-                    'password' => password_hash($password, PASSWORD_DEFAULT),
+                    'id'        => $id,
+                    'username'  => $username,
+                    'email'     => $email,
+                    'role'      => $role,
+                    'password'  => password_hash($password, PASSWORD_DEFAULT),
                 ];
                 break;
             }
@@ -43,7 +53,7 @@ try {
 
         writeDatabaseFile(DB_FILE_PATH, $data);
         $successMessage = 'Update Successfully.';
-        header("Location: " . BASE_URL . "/dashboard/index.php?success=" . urlencode($successMessage));
+        header("location:" . BASE_URL . "/dashboard/index.php");
         exit();
     }
 } catch (Exception $e) {
@@ -85,6 +95,13 @@ try {
                                 <input type="email" name="email" id="email3c" class="form-control" value="<?php echo $item['email']; ?>" />
                                 <label class="form-label" for="email3c">Your Email</label>
                             </div>
+
+                            <!-- Role input -->
+                            <select class="browser-default form-select mb-4" name="role">
+                                <option value="admin" <?php echo ($item['role'] == 'admin') ? "selected" : ""  ?>>Admin</option>
+                                <option value="editor" <?php echo ($item['role'] == 'editor') ? "selected" : "" ?>>Editor</option>
+                                <option value="user" <?php echo ($item['role'] == 'user') ? "selected" : "" ?>>User</option>
+                            </select>
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
@@ -133,4 +150,4 @@ try {
 </section>
 <!-- Section: Design Block -->
 
-<?php require_once("../header/footer.php"); ?>
+<?php require_once("../../header/footer.php"); ?>

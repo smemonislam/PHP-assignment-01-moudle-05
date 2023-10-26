@@ -1,4 +1,5 @@
 <?php
+
 ob_start();
 session_start();
 
@@ -17,7 +18,6 @@ define("DB_FILE_PATH", "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/databa
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CRUD - Create</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
     <!-- Font Awesome -->
@@ -26,6 +26,8 @@ define("DB_FILE_PATH", "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/databa
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="http://localhost:3000/public/header/css/admin.css" />
     <style>
         .text-justify {
             text-align: justify;
@@ -69,6 +71,8 @@ define("DB_FILE_PATH", "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/databa
 
 <body>
 
+
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- Container wrapper -->
@@ -87,11 +91,14 @@ define("DB_FILE_PATH", "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/databa
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <?php if (isset($_SESSION['loggedin'])) : ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo BASE_URL; ?>/dashboard/index.php">Dashboard</a>
-                        </li>
-                    <?php endif; ?>
+                    <?php
+                    if (isset($_SESSION['role']) || isset($_SESSION['editor'])) :
+                        if ('admin' == $_SESSION['role'] || 'editor' == $_SESSION['role'] && isset($_SESSION['loggedin'])) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo BASE_URL; ?>/dashboard/index.php">Dashboard</a>
+                            </li>
+                    <?php endif;
+                    endif; ?>
                     <?php if (!isset($_SESSION['loggedin'])) : ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo BASE_URL; ?>/login/index.php">Login</a>

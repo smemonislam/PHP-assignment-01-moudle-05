@@ -3,42 +3,63 @@
         "id": 2,
         "username": "Moniruzzaman",
         "email": "moniruzzaman@gmail.com",
+        "role": "user",
         "password": "$2y$10$TLpeD7J8qd7.Qwyg3RW.wuFOP9oznskAlk7dBw74Hxr6JymC7st1m"
     },
     "3": {
         "id": 4,
         "username": "Emon",
         "email": "emon@gmail.com",
+        "role": "user",
         "password": "$2y$10$hG68OVD7UKLUHtQQ81buyuHz1ccL2oar3I4SKmOGzFSsMi3waEfk."
     },
     "4": {
         "id": 5,
         "username": "Jahid",
         "email": "jahid@gmail.com",
+        "role": "user",
         "password": "$2y$10$faDKQnfUo78bg06KWq47TeEXYH.Fe8r.AXQPuJhl7GBnwgCuXWFQu"
     },
     "7": {
         "id": "7",
         "username": "Sabuz Hasan",
         "email": "sabuz@gmail.com",
+        "role": "user",
         "password": "$2y$10$GvLoFDAP1FWeUcImR0EEh.gGwYj0P5NMfCQ9TZE0J2NiEk0wNBYCe"
     },
     "10": {
         "id": 8,
         "username": "Ashikur",
         "email": "ashikur@gmail.com",
+        "role": "user",
         "password": "$2y$10$xQjf\/yp1HgECab67xAwMBeM9zSPvIzPDA7zq5f9RVP2H4VgGSxzWm"
     },
     "12": {
         "id": "1",
         "username": "Hasan Reza",
         "email": "reza@gmail.com",
+        "role": "user",
         "password": "$2y$10$9y6oWQGZwtL0Iz6DG7E9Q.VCla\/h2f2uojjMjUiCJZ9yoP4veYjOO"
     },
     "13": {
         "id": "9",
         "username": "Shahina Akther",
         "email": "shahina@gmail.com",
+        "role": "editor",
         "password": "$2y$10$BBJf7bbiRVfB\/o75xvBJmeM6cjx1vBNpSIeEXXyjmqzNuV24ZwYzK"
+    },
+    "14": {
+        "id": "10",
+        "username": "Admin",
+        "email": "admin@gmail.com",
+        "role": "admin",
+        "password": "$2y$10$BBJf7bbiRVfB\/o75xvBJmeM6cjx1vBNpSIeEXXyjmqzNuV24ZwYzK"
+    },
+    "15": {
+        "id": "11",
+        "username": "Emon Islam",
+        "email": "emonisalm@gmail.com",
+        "role": "user",
+        "password": "$2y$10$EANE5ruz8gwHd\/kF9JlsD.LOCYUyPmfbN8\/H70DH5o9Eezdwf7uA6"
     }
 }
