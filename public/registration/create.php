@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
                             <div class="form-check d-flex justify-content-center mb-4">
                                 <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
                                 <label class="form-check-label" for="form2Example33">
-                                    Subscribe to our newsletter
+                                    Already have a account? <a href="<?php echo BASE_URL; ?>/login/index.php">Login</a>
                                 </label>
                             </div>
 

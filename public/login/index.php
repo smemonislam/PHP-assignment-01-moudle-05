@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["login"])) {
             if ($email == $item['email'] && password_verify($password, $item['password'])) {
                 $_SESSION['loggedin']   = true;
                 $_SESSION['email']      = $email;
+                $_SESSION['username']   = $item['username'];
                 $_SESSION['user_id']    = $item['id'];
                 $_SESSION['role']       = $item['role'];
 

@@ -56,7 +56,7 @@ usort($allRegistrations, function ($a, $b) {
                                     <td><?php echo $data['email'] ?? ""; ?></td>
                                     <td><?php echo $data['role'] ?? ""; ?></td>
                                     <td>
-                                        <a href="<?php echo BASE_URL; ?>/dashboard/user/veiw.php?id=<?php echo $data['id']; ?>" class="btn btn-success btn-sm">View</a>
+                                        <a href="<?php echo BASE_URL; ?>/dashboard/user/view.php?id=<?php echo $data['id']; ?>" class="btn btn-success btn-sm">View</a>
                                         <?php if (isAdmin()) : ?>
                                             <a href="<?php echo BASE_URL; ?>/dashboard/user/edit.php?id=<?php echo $data['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
                                         <?php endif; ?>

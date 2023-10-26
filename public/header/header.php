@@ -97,18 +97,22 @@ define("DB_FILE_PATH", "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/databa
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <?php
-
-                    if ('admin' == isset($_SESSION['role']) && isset($_SESSION['loggedin'])) : ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo BASE_URL; ?>/dashboard/index.php">Dashboard</a>
-                        </li>
-                    <?php endif;
+                    if (isset($_SESSION['role']) && isset($_SESSION['loggedin'])) :
+                        if ('admin' == $_SESSION['role']) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo BASE_URL; ?>/dashboard/index.php">Dashboard</a>
+                            </li>
+                    <?php
+                        endif;
+                    endif;
                     ?>
+
                     <?php if (!isset($_SESSION['loggedin'])) : ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo BASE_URL; ?>/login/index.php">Login</a>
                         </li>
                     <?php endif; ?>
+
                     <?php if (!isset($_SESSION['loggedin'])) : ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo BASE_URL; ?>/registration/create.php">Register</a>

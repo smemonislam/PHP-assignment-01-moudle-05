@@ -39,7 +39,7 @@
         "username": "Hasan Reza",
         "email": "reza@gmail.com",
         "role": "user",
-        "password": "$2y$10$tLkooCR4KyJxuUNk4Ik6i.6J1oTWCXrvAB\/4ncdQVzVI6acHTMm8u"
+        "password": "$2y$10$xLOsELOU2iRPRjqgymq4T.gxoQOR0QriuhpczN8l.JuZi7xoWPfHG"
     },
     "13": {
         "id": "9",

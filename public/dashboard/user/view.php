@@ -191,3 +191,5 @@ try {
         </div>
     </div>
 </section>
+
+<?php require_once("../../header/footer.php"); ?>
