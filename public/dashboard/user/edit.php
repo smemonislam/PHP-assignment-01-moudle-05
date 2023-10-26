@@ -78,7 +78,7 @@ try {
 
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6">
-                        <h2 class="fw-bold mb-5">Sign up now</h2>
+                        <h2 class="fw-bold mb-5">Edit User</h2>
                         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>/?id=<?php echo $id; ?>" method="POST">
                             <?php if (isset($errorMessage)) :  ?>
                                 <div class="alert alert-danger"><?php echo $errorMessage; ?></div>

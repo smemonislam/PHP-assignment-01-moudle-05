@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
             backdrop-filter: blur(30px);
             ">
                     <div class="card-body p-5 shadow-5 text-center">
-                        <h2 class="fw-bold mb-5">Sign up now</h2>
+                        <h2 class="fw-bold mb-5">Add New User</h2>
                         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                             <?php if (isset($errorMessage)) :  ?>
                                 <div class="alert alert-danger"><?php echo $errorMessage; ?></div>
