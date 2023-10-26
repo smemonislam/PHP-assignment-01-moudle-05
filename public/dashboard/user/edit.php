@@ -8,9 +8,6 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['loggedin'])) {
     exit();
 }
 
-
-
-
 $id = $_GET["id"];
 
 // Main code
