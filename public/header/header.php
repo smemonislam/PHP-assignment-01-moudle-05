@@ -9,6 +9,8 @@ define("BASE_URL", "http://localhost:3000/public");
 // Define the file path as a constant
 define("DB_FILE_PATH", "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/database/db.txt");
 
+
+
 ?>
 
 <!doctype html>
@@ -77,6 +79,7 @@ define("DB_FILE_PATH", "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/databa
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- Container wrapper -->
         <div class="container">
+
             <!-- Toggle button -->
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
@@ -84,6 +87,8 @@ define("DB_FILE_PATH", "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/databa
 
             <!-- Collapsible wrapper -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
                 <!-- Navbar brand -->
                 <a class="navbar-brand mt-2 mt-lg-0" href="<?php echo BASE_URL; ?>">
                     <img src="<?php echo BASE_URL; ?>/img/ostad-app-logo-vector.png" alt="MDB Logo" loading="lazy" />
@@ -92,13 +97,13 @@ define("DB_FILE_PATH", "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/databa
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <?php
-                    if (isset($_SESSION['role']) || isset($_SESSION['editor'])) :
-                        if ('admin' == $_SESSION['role'] || 'editor' == $_SESSION['role'] && isset($_SESSION['loggedin'])) : ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?php echo BASE_URL; ?>/dashboard/index.php">Dashboard</a>
-                            </li>
+
+                    if ('admin' == isset($_SESSION['role']) && isset($_SESSION['loggedin'])) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo BASE_URL; ?>/dashboard/index.php">Dashboard</a>
+                        </li>
                     <?php endif;
-                    endif; ?>
+                    ?>
                     <?php if (!isset($_SESSION['loggedin'])) : ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo BASE_URL; ?>/login/index.php">Login</a>

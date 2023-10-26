@@ -50,7 +50,7 @@ try {
 
         writeDatabaseFile(DB_FILE_PATH, $data);
         $successMessage = 'Update Successfully.';
-        header("location:" . BASE_URL . "/dashboard/index.php");
+        header("location:" . BASE_URL . "/dashboard/index.php?success=" . urlencode($successMessage));
         exit();
     }
 } catch (Exception $e) {

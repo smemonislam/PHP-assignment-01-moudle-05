@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["login"])) {
                 if ($_SESSION['role'] == 'admin') {
                     header("Location:" . BASE_URL . "/dashboard/index.php");
                 } else if ($_SESSION['role'] == 'editor') {
-                    header("Location:" . BASE_URL . "/dashboard/index.php");
+                    header("Location:" . BASE_URL);
                 } else {
                     header("Location:" . BASE_URL);
                 }

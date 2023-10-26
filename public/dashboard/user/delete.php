@@ -28,7 +28,7 @@ try {
 
     // Redirect to a success page with a message
     $successMessage = 'Delete Successfully.';
-    header("Location: " . BASE_URL . "/index.php?success=" . urlencode($successMessage));
+    header("Location: " . BASE_URL . "/dashboard/index.php?success=" . urlencode($successMessage));
     exit();
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();

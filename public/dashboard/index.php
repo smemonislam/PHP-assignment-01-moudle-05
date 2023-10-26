@@ -6,6 +6,8 @@ if (!isset($_SESSION['email'])) {
     header('Location:' . BASE_URL . "/login/index.php");
 }
 
+
+
 $allRegistrations = readDatabaseFile(DB_FILE_PATH);
 usort($allRegistrations, function ($a, $b) {
     return $a['id'] - $b['id'];
@@ -54,7 +56,7 @@ usort($allRegistrations, function ($a, $b) {
                                     <td><?php echo $data['email'] ?? ""; ?></td>
                                     <td><?php echo $data['role'] ?? ""; ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-success btn-sm">View</a>
+                                        <a href="<?php echo BASE_URL; ?>/dashboard/user/veiw.php?id=<?php echo $data['id']; ?>" class="btn btn-success btn-sm">View</a>
                                         <?php if (isAdmin()) : ?>
                                             <a href="<?php echo BASE_URL; ?>/dashboard/user/edit.php?id=<?php echo $data['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
                                         <?php endif; ?>

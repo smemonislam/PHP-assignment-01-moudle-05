@@ -1,9 +1,15 @@
-<?php require_once("./header/header.php"); ?>
 <?php
+require_once("./header/header.php");
+require_once("./config.php");
+
 
 
 if (!isset($_SESSION['email'])) {
     header('Location:' . BASE_URL . "/login/index.php");
+}
+
+if (isAdmin()) {
+    header('Location:' . BASE_URL . "/dashboard/index.php");
 }
 
 ?>

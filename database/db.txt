@@ -39,7 +39,7 @@
         "username": "Hasan Reza",
         "email": "reza@gmail.com",
         "role": "user",
-        "password": "$2y$10$9y6oWQGZwtL0Iz6DG7E9Q.VCla\/h2f2uojjMjUiCJZ9yoP4veYjOO"
+        "password": "$2y$10$tLkooCR4KyJxuUNk4Ik6i.6J1oTWCXrvAB\/4ncdQVzVI6acHTMm8u"
     },
     "13": {
         "id": "9",
@@ -54,12 +54,5 @@
         "email": "admin@gmail.com",
         "role": "admin",
         "password": "$2y$10$BBJf7bbiRVfB\/o75xvBJmeM6cjx1vBNpSIeEXXyjmqzNuV24ZwYzK"
-    },
-    "15": {
-        "id": "11",
-        "username": "Emon Islam",
-        "email": "emonisalm@gmail.com",
-        "role": "user",
-        "password": "$2y$10$EANE5ruz8gwHd\/kF9JlsD.LOCYUyPmfbN8\/H70DH5o9Eezdwf7uA6"
     }
 }
