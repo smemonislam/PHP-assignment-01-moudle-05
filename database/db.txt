@@ -1,10 +1,10 @@
 {
     "1": {
-        "id": 2,
-        "username": "Moniruzzaman",
-        "email": "moniruzzaman@gmail.com",
-        "role": "user",
-        "password": "$2y$10$TLpeD7J8qd7.Qwyg3RW.wuFOP9oznskAlk7dBw74Hxr6JymC7st1m"
+        "id": "2",
+        "username": "Moniruzzaman Rasel",
+        "email": "moniruzzamanrasel@gmail.com",
+        "role": "manager",
+        "password": "$2y$10$b25.YdssbARpge1kcfE5M.MzCwkCjH2tVDKyyix5n42RTGwp8gALa"
     },
     "3": {
         "id": 4,
@@ -46,7 +46,7 @@
         "username": "Shahina Akther",
         "email": "shahina@gmail.com",
         "role": "manager",
-        "password": "$2y$10$BBJf7bbiRVfB\/o75xvBJmeM6cjx1vBNpSIeEXXyjmqzNuV24ZwYzK"
+        "password": "$2y$10$XEvHwmdKMFcRcmBzYuMMPOhFGhyl8SjSLvschfZErNr16wCOcEf\/a"
     },
     "14": {
         "id": "10",
@@ -61,5 +61,12 @@
         "email": "abc@gmail.com",
         "role": "user",
         "password": "$2y$10$3T4UzZ8RttYEm8zQgjXU5Op9ZAvXx3xvZgTwWfRFaTUzXFXKGWEr6"
+    },
+    "16": {
+        "id": 12,
+        "username": "User",
+        "email": "user@gmail.com",
+        "role": "user",
+        "password": "$2y$10$cVcB6kPJXka.xOOo5cJhdOYwBbqq3.z7D9lxamAFq9fhPdFoU4TuS"
     }
 }
