@@ -96,7 +96,7 @@ try {
                             <!-- Role input -->
                             <select class="browser-default form-select mb-4" name="role">
                                 <option value="admin" <?php echo ($item['role'] == 'admin') ? "selected" : ""  ?>>Admin</option>
-                                <option value="editor" <?php echo ($item['role'] == 'editor') ? "selected" : "" ?>>Editor</option>
+                                <option value="editor" <?php echo ($item['role'] == 'manager') ? "selected" : "" ?>>Manager</option>
                                 <option value="user" <?php echo ($item['role'] == 'user') ? "selected" : "" ?>>User</option>
                             </select>
 

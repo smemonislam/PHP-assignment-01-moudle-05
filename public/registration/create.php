@@ -3,7 +3,7 @@ require_once("../header/header.php");
 require_once("../config.php");
 
 // Check if the user is already logged in, redirect if necessary
-if (isset($_SESSION['email'])) {
+if (isset($_SESSION['loggedin'])) {
     header('Location:' . BASE_URL);
     exit();
 }

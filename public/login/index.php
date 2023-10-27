@@ -3,7 +3,7 @@ require_once("../header/header.php");
 require_once("../config.php");
 
 // Check if the user is already logged in, redirect if necessary
-if (isset($_SESSION['email'])) {
+if (isset($_SESSION['loggedin'])) {
     header('Location:' . BASE_URL);
     exit();
 }
@@ -72,7 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["login"])) {
                                 </div>
                                 <?php if (isset($_SESSION['success'])) :  ?>
                                     <div class="alert alert-success">
-                                        <?php echo $_SESSION['success']; ?>
+                                        <?php
+                                        echo $_SESSION['success'];
+                                        session_destroy();
+                                        ?>
                                     </div>
                                 <?php endif; ?>
                                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">

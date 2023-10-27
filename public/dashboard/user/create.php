@@ -57,8 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
         writeDatabaseFile(DB_FILE_PATH, $data);
 
         // Set a success message in the session and redirect to the login page
-        $_SESSION['success'] = 'Successfully registered.';
-        header("location:" . BASE_URL . "/dashboard/index.php");
+        $successMessage = 'Successfully registered.';
+        header("location:" . BASE_URL . "/dashboard/index.php?success=" . urlencode($successMessage));
         exit();
     } catch (Exception $e) {
         $errorMessage = $e->getMessage();
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
                             <select class="browser-default form-select mb-4" name="role">
                                 <option value="" selected>User Role</option>
                                 <option value="admin">Admin</option>
-                                <option value="editor">Editor</option>
+                                <option value="manager">Manager</option>
                                 <option value="user">User</option>
                             </select>
 

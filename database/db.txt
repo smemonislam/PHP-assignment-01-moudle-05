@@ -45,7 +45,7 @@
         "id": "9",
         "username": "Shahina Akther",
         "email": "shahina@gmail.com",
-        "role": "editor",
+        "role": "manager",
         "password": "$2y$10$BBJf7bbiRVfB\/o75xvBJmeM6cjx1vBNpSIeEXXyjmqzNuV24ZwYzK"
     },
     "14": {
@@ -54,5 +54,12 @@
         "email": "admin@gmail.com",
         "role": "admin",
         "password": "$2y$10$BBJf7bbiRVfB\/o75xvBJmeM6cjx1vBNpSIeEXXyjmqzNuV24ZwYzK"
+    },
+    "15": {
+        "id": 11,
+        "username": "abc",
+        "email": "abc@gmail.com",
+        "role": "user",
+        "password": "$2y$10$3T4UzZ8RttYEm8zQgjXU5Op9ZAvXx3xvZgTwWfRFaTUzXFXKGWEr6"
     }
 }
