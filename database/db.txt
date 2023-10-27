@@ -36,10 +36,10 @@
     },
     "12": {
         "id": "1",
-        "username": "Hasan Reza",
-        "email": "reza@gmail.com",
-        "role": "user",
-        "password": "$2y$10$xLOsELOU2iRPRjqgymq4T.gxoQOR0QriuhpczN8l.JuZi7xoWPfHG"
+        "username": "Hasan",
+        "email": "hasan@gmail.com",
+        "role": "manager",
+        "password": "$2y$10$1B3N4Lt3MYRxckzuCy59Geefyz90ytevXkCu3GqxDMiDTzrXe1Q3K"
     },
     "13": {
         "id": "9",
@@ -54,19 +54,5 @@
         "email": "admin@gmail.com",
         "role": "admin",
         "password": "$2y$10$BBJf7bbiRVfB\/o75xvBJmeM6cjx1vBNpSIeEXXyjmqzNuV24ZwYzK"
-    },
-    "15": {
-        "id": 11,
-        "username": "abc",
-        "email": "abc@gmail.com",
-        "role": "user",
-        "password": "$2y$10$3T4UzZ8RttYEm8zQgjXU5Op9ZAvXx3xvZgTwWfRFaTUzXFXKGWEr6"
-    },
-    "16": {
-        "id": 12,
-        "username": "User",
-        "email": "user@gmail.com",
-        "role": "user",
-        "password": "$2y$10$cVcB6kPJXka.xOOo5cJhdOYwBbqq3.z7D9lxamAFq9fhPdFoU4TuS"
     }
 }
