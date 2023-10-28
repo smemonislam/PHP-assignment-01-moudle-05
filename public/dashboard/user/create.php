@@ -1,6 +1,6 @@
 <?php
 require_once("../../header/header.php");
-require_once("../../config.php");
+require_once("../../functions.php");
 
 // Check if the user is already logged in, redirect if necessary
 if (!isset($_SESSION['email'])) {
@@ -16,13 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
         $role       = validatedInput($_POST['role']);
         $password   = validatedInput($_POST['password']);
 
-        if (empty($username) || empty($email) || empty($password) || empty($role)) {
-            throw new Exception('All fields are required.');
-        }
 
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new Exception('Email is invalid.');
-        }
+        validateUsername($username);
+        validateEmail($email);
+        validatePassword($password);
 
         // Read the existing data from the database file
         $data = readDatabaseFile(DB_FILE_PATH);
@@ -45,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
         // Create a new user and add it to the data array
         $newUser = [
             'id'        => $id,
-            'username'  => $username,
+            'username'  => strtolower($username),
             'email'     => $email,
             'role'      => $role,
             'password'  => password_hash($password, PASSWORD_DEFAULT),

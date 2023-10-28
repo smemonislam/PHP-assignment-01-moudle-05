@@ -1,6 +1,6 @@
 <?php
 require_once("../../header/header.php");
-require_once("../../config.php");
+require_once("../../functions.php");
 
 // Check if the user is logged in
 if (!isset($_SESSION['email']) || !isset($_SESSION['loggedin'])) {
@@ -26,20 +26,16 @@ try {
         $role       = validatedInput($_POST['role']);
         $password   = validatedInput($_POST['password']);
 
-        if (empty($username) || empty($email) || empty($password) || empty($role)) {
-            throw new Exception('All fields are required.');
-        }
-
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new Exception('Email is invalid.');
-        }
+        validateUsername($username);
+        validateEmail($email);
+        validatePassword($password);
 
         // Update the data
         foreach ($data as $key => &$item) {
             if ($item["id"] == $id) {
                 $item = [
                     'id'        => $id,
-                    'username'  => $username,
+                    'username'  => strtolower($username),
                     'email'     => $email,
                     'role'      => $role,
                     'password'  => password_hash($password, PASSWORD_DEFAULT),

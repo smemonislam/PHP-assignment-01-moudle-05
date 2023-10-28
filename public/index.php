@@ -1,6 +1,6 @@
 <?php
 require_once("./header/header.php");
-require_once("./config.php");
+require_once("./functions.php");
 
 // Check if the user is not authenticated
 if (!isset($_SESSION['loggedin'])) {

@@ -87,8 +87,6 @@ define("DB_FILE_PATH", "C:/laragon/www/PHP/File Operations/CRUD_OPERATION/databa
 
             <!-- Collapsible wrapper -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-
                 <!-- Navbar brand -->
                 <a class="navbar-brand mt-2 mt-lg-0" href="<?php echo BASE_URL; ?>">
                     <img src="<?php echo BASE_URL; ?>/img/ostad-app-logo-vector.png" alt="MDB Logo" loading="lazy" />

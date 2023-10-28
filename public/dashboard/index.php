@@ -1,6 +1,6 @@
 <?php
 require_once("../header/header.php");
-require_once("../config.php");
+require_once("../functions.php");
 
 if (!isset($_SESSION['email'])) {
     header('Location:' . BASE_URL . "/login/index.php");

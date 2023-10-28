@@ -1,6 +1,6 @@
 <?php
 require_once("../../header/header.php");
-require_once("../../config.php");
+require_once("../../functions.php");
 
 // Check if the user is logged in
 if (!isset($_SESSION['email']) || !isset($_SESSION['loggedin'])) {
