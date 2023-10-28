@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["login"])) {
                                     <div class="text-center pt-1 mb-5 pb-1">
                                         <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="login">Log
                                             in</button>
-                                        <a class="text-muted" href="#!">Forgot password?</a>
+                                        <a class="text-muted" href="<?php echo BASE_URL; ?>/login/forgot-password.php">Forgot password?</a>
                                     </div>
 
                                     <div class="d-flex align-items-center justify-content-center pb-4">

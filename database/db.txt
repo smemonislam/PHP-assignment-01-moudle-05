@@ -4,6 +4,13 @@
         "username": "admin",
         "email": "admin@gmail.com",
         "role": "admin",
-        "password": "$2y$10$xx\/zdZVIHBkjXBOx6dDgKOtwmNQcI0e8kKbxnoyRe3ao1CP\/RqX6e"
+        "password": "$2y$10$ipLEn1pxhd4OVC44zYhNE.d25uvERt5NI3jj\/SEJwwlr\/ZVhaEBRW"
+    },
+    "13": {
+        "id": 2,
+        "username": "chanchal",
+        "email": "chanchal@gmail.com",
+        "role": "manager",
+        "password": "$2y$10$qpC9thcBdopfp9K7HDHD.eMcYAEvfvWGpa649kdfytKxpnJ93IHVO"
     }
 }

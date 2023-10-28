@@ -97,6 +97,18 @@ function findDataByRole($data, $role)
     return null;
 }
 
+
+// Function to find data by Role
+function findDataByEmail($data, $email)
+{
+    foreach ($data as $key => $item) {
+        if ($item["email"] == $email) {
+            return $item;
+        }
+    }
+    return null;
+}
+
 function isAdmin()
 {
     return ('admin' == $_SESSION['role']);
