@@ -18,10 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["login"])) {
             throw new Exception("Both email and password are required fields.");
         }
 
-        // Verify the email format
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new Exception('Invalid email format.');
-        }
+        validateEmail($email);
 
         // Read the user data from the database file
         $data = readDatabaseFile(DB_FILE_PATH);
@@ -85,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["login"])) {
                                     <?php endif; ?>
                                     <div class="form-outline mb-4">
                                         <input type="email" id="form2Example11" name="email" class="form-control" placeholder="Email address" />
-                                        <label class="form-label" for="form2Example11">Username</label>
+                                        <label class="form-label" for="form2Example11">Email Address</label>
                                     </div>
 
                                     <div class="form-outline mb-4">

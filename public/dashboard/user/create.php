@@ -17,6 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
         $password   = validatedInput($_POST['password']);
 
 
+        if (empty($username) || empty($email) || empty($password)) {
+            throw new Exception("All fields are required.");
+        }
+
         validateUsername($username);
         validateEmail($email);
         validatePassword($password);
