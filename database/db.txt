@@ -4,7 +4,7 @@
         "username": "admin",
         "email": "admin@gmail.com",
         "role": "admin",
-        "password": "$2y$10$ipLEn1pxhd4OVC44zYhNE.d25uvERt5NI3jj\/SEJwwlr\/ZVhaEBRW"
+        "password": "$2y$10$cUXIxPKcXAW5ypU6n3U\/yeFYYlx2HpuP38LjquVhouN3.99btwvRi"
     },
     "13": {
         "id": 2,
@@ -12,5 +12,12 @@
         "email": "chanchal@gmail.com",
         "role": "manager",
         "password": "$2y$10$qpC9thcBdopfp9K7HDHD.eMcYAEvfvWGpa649kdfytKxpnJ93IHVO"
+    },
+    "14": {
+        "id": 3,
+        "username": "reza",
+        "email": "reza@gmail.com",
+        "role": "user",
+        "password": "$2y$10$Haf01gGG2jbJ3wkIGNRw1uk0TgY3zBAqGrjO15Uh6oi\/JGu0jcNvG"
     }
 }

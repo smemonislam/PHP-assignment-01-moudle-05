@@ -19,7 +19,7 @@ if (!$item) {
 }
 
 // Check if the user email is not a session in, redirect if necessary
-if (empty($_SESSION["email"])) {
+if (empty($_SESSION['email'])) {
     header("Location:" . BASE_URL . "/login/index.php");
     exit();
 }
@@ -41,18 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["changePassword"])) {
 
             foreach ($data as $key => &$item) {
                 if ($item["id"] == $id) {
-                    $item = [
-                        'id'        => $id,
-                        'username'  => $item['username'],
-                        'email'     => $item['email'],
-                        'role'      => $item['role'],
-                        'password'  => password_hash($oldPassword, PASSWORD_DEFAULT),
-                    ];
-                    break;
+                    $item['password'] = password_hash($oldPassword, PASSWORD_DEFAULT);
                 }
             }
 
             writeDatabaseFile(DB_FILE_PATH, $data);
+            unset($_SESSION['email']);
             $_SESSION["success"] = 'Password changed successfully.';
             header("location:" . BASE_URL . "/login/index.php");
 
@@ -113,5 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["changePassword"])) {
     </div>
 </main>
 <!--Main layout-->
-<?php require_once("../header/footer.php");
-session_destroy(); ?>
+<?php
+require_once("../header/footer.php");
+
+?>
