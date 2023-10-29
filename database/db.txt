@@ -5,6 +5,8 @@
         "email": "admin@gmail.com",
         "role": "admin",
         "password": "$2y$10$cUXIxPKcXAW5ypU6n3U\/yeFYYlx2HpuP38LjquVhouN3.99btwvRi"
+        Admin2023@#
+        Khulna2023@#
     },
     "13": {
         "id": 2,

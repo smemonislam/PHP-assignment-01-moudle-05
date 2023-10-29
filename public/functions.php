@@ -2,22 +2,26 @@
 // Function to read data from the database file
 function readDatabaseFile($filePath)
 {
-    if (file_exists($filePath) && is_readable($filePath)) {
-        $data = json_decode(file_get_contents($filePath), true) ?? [];
-        return $data;
-    } else {
-        throw new Exception('Database file is not accessible.');
-    }
+    $data = file_exists($filePath) ? json_decode(file_get_contents($filePath), true) : [];
+    return $data;
+    // if (file_exists($filePath) && is_readable($filePath)) {
+    //     $data = json_decode(file_get_contents($filePath), true) ?? [];
+    //     return $data;
+    // } else {
+    //     throw new Exception('Database file is not accessible.');
+    // }
 }
 
 // Function to write data to the database file
 function writeDatabaseFile($filePath, $data)
 {
-    if (file_exists($filePath) && is_writable($filePath)) {
-        file_put_contents($filePath, json_encode($data, JSON_PRETTY_PRINT));
-    } else {
-        throw new Exception('Database file is not writable.');
-    }
+    // if (file_exists($filePath) && is_writable($filePath)) {
+    //     file_put_contents($filePath, json_encode($data, JSON_PRETTY_PRINT));
+    // } else {
+    //     throw new Exception('Database file is not writable.');
+    // }
+
+    file_put_contents($filePath, json_encode($data, JSON_PRETTY_PRINT));
 }
 
 // Function to validate and sanitize input
@@ -112,4 +116,22 @@ function findDataByEmail($data, $email)
 function isAdmin()
 {
     return ('admin' == $_SESSION['role']);
+}
+
+// Password Generator
+function generatePassword($length = 8)
+{
+    $uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $lowercase = 'abcdefghijklmnopqrstuvwxyz';
+    $numbers = '0123456789';
+    $specialChars = '!@#$%^&*()-_=+[]{}|;:,.<>?';
+    $allChars = $uppercase . $lowercase . $numbers . $specialChars;
+
+    $password = $uppercase[rand(0, 25)] . $lowercase[rand(0, 25)] . $numbers[rand(0, 9)] . $specialChars[rand(0, 22)];
+
+    for ($i = 0; $i < $length - 4; $i++) {
+        $password .= $allChars[rand(0, 61)];
+    }
+
+    return str_shuffle($password);
 }
