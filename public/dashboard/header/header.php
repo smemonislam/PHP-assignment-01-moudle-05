@@ -45,8 +45,8 @@
                 </button>
 
                 <!-- Brand -->
-                <a class="navbar-brand" href="#">
-                    <img src="http://localhost:3000/public/dashboard/img/ostad-app-logo-vector.png" height="25" alt="" loading="lazy" />
+                <a class="navbar-brand" href="<?php echo BASE_URL ?>/dashboard/index.php">
+                    <img src="http://localhost:3000/public/dashboard/assets/img/ostad-app-logo-vector.png" height="25" alt="" loading="lazy" />
                 </a>
                 <!-- Search form -->
                 <form class="d-none d-md-flex input-group w-auto my-auto">

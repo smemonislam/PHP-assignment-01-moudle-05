@@ -28,10 +28,9 @@ usort($allRegistrations, function ($a, $b) {
         <!--Section: Sales Performance KPIs-->
         <section class="mb-4">
             <div class="card">
-                <div class="card-header text-center py-3">
-                    <h5 class="mb-0 text-center">
-                        <strong>Sales Performance KPIs</strong>
-                    </h5>
+                <div class="card-header d-flex justify-content-end py-3">
+                    <a href="<?= BASE_URL ?>/dashboard/user/create.php" class="btn btn-info mx-2">Add New User</a>
+                    <a href="<?= BASE_URL ?>/dashboard/index.php" class="btn btn-primary">Back</a>
                 </div>
                 <div class="card-body">
                     <table class="table align-middle mb-0 bg-white">
