@@ -72,7 +72,7 @@ function validatePassword($password)
         throw new Exception('Password must be at least ' . $minPasswordLength . ' characters long.');
     }
 
-    if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&!*_])[A-Za-z\d@#$%^&!*_]{8,}$/', $password)) {
+    if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+\[\]{}|;:,.<>?])[A-Za-z\d!@#$%^&*()\-_=+\[\]{}|;:,.<>?]{8,}$/', $password)) {
         throw new Exception('Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.');
     }
 }

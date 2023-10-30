@@ -19,5 +19,12 @@
         "email": "manager@gmail.com",
         "role": "manager",
         "password": "$2y$10$bmZMe.cda6E1Kmsn29YxVeByfl3C.ASyfN1HZk6DWzOL.0MkKte6i"
+    },
+    {
+        "id": 4,
+        "username": "asdf",
+        "email": "asdf@gmail.com",
+        "role": "user",
+        "password": "$2y$10$DnX5pxZRsx4QLPkwvVDIPel21J\/pzs1GrwAJzyEzZI1O1HiJ9iv.m"
     }
 ]
