@@ -1,4 +1,14 @@
 <?php
+ob_start();
+session_start();
+
+// Base URL
+define("BASE_URL", "http://localhost:3000/public");
+
+// Define the file path as a constant
+define("DB_FILE_PATH",  $_SERVER['DOCUMENT_ROOT'] . "/database/db.json");
+
+
 // Function to read data from the database file
 function readDatabaseFile($filePath)
 {
@@ -127,7 +137,7 @@ function generatePassword($length = 8)
     $specialChars = '!@#$%^&*()-_=+[]{}|;:,.<>?';
     $allChars = $uppercase . $lowercase . $numbers . $specialChars;
 
-    $password = $uppercase[rand(0, 25)] . $lowercase[rand(0, 25)] . $numbers[rand(0, 9)] . $specialChars[rand(0, 22)];
+    $password = $uppercase[rand(0, 25)] . $lowercase[rand(0, 25)] . $numbers[rand(0, 9)] . $specialChars[rand(0, 26)];
 
     for ($i = 0; $i < $length - 4; $i++) {
         $password .= $allChars[rand(0, 61)];

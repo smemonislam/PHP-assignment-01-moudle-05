@@ -1,6 +1,6 @@
 <?php
-require_once("../header/header.php");
-require_once("../functions.php");
+require_once $_SERVER['DOCUMENT_ROOT'] . "/public/header/header.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/public/functions.php';
 
 // Check if the user is already logged in, redirect if necessary
 if (isset($_SESSION['loggedin'])) {
@@ -141,4 +141,4 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["register"])) {
     <!-- Jumbotron -->
 </section>
 <!-- Section: Design Block -->
-<?php require_once("../header/footer.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/public/header/footer.php"; ?>

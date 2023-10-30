@@ -7,11 +7,11 @@
         "password": "$2y$10$QPUguIPJ6xVFVy8C8GI\/suFn2nsPmT2RTYajUM4NvtUOwN64OMOWu"
     },
     {
-        "id": 2,
+        "id": "2",
         "username": "user",
         "email": "user@gmail.com",
-        "role": "user",
-        "password": "$2y$10$XYPcJeZkYFiYjarKkQoLQuG0lhSKWLogI64mBghssLB7oUkNdN.pO"
+        "role": "manager",
+        "password": "$2y$10$ty7cfnHPUNFgBx.H0vl4bOVtfS55YvqvY6UxgsRu5us8kHHuqm7YG"
     },
     {
         "id": 3,

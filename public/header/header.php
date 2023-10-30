@@ -1,15 +1,4 @@
-<?php
-
-ob_start();
-session_start();
-
-// Base URL
-define("BASE_URL", "http://localhost:3000/public");
-
-// Define the file path as a constant
-define("DB_FILE_PATH",  $_SERVER['DOCUMENT_ROOT'] . "/database/db.json");
-
-?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/public/functions.php'; ?>
 
 <!doctype html>
 <html lang="en">

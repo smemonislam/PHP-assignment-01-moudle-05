@@ -1,12 +1,16 @@
 <?php
-require_once("../../header/header.php");
-require_once("../../functions.php");
+require_once $_SERVER['DOCUMENT_ROOT'] . '/public/functions.php';
 
 if (!isset($_SESSION['email']) || !isset($_SESSION['loggedin'])) {
     header('Location:' . BASE_URL . "/login/index.php");
     exit();
 }
 
+// Check if the user is an admin
+if (!isAdmin()) {
+    header('Location: ' . BASE_URL . "/index.php");
+    exit;
+}
 
 $id = $_GET['id'];
 
@@ -33,4 +37,3 @@ try {
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
 }
-require_once("../../header/footer.php");

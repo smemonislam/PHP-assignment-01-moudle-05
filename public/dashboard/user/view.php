@@ -1,11 +1,17 @@
 <?php
-require_once("../../header/header.php");
-require_once("../../functions.php");
+require_once $_SERVER['DOCUMENT_ROOT'] . "/public/dashboard/header/header.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/public/functions.php';
 
 // Check if the user is logged in
 if (!isset($_SESSION['email']) || !isset($_SESSION['loggedin'])) {
     header('Location:' . BASE_URL . "/login/index.php");
     exit();
+}
+
+// Check if the user is an admin
+if (!isAdmin()) {
+    header('Location: ' . BASE_URL . "/index.php");
+    exit;
 }
 
 $id = $_GET["id"];
@@ -31,8 +37,8 @@ try {
             <div class="col">
                 <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">User</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo BASE_URL . "/dashboard/index.php"; ?>">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo BASE_URL . "/dashboard/user/index.php"; ?>">User</a></li>
                         <li class="breadcrumb-item active" aria-current="page">User Profile</li>
                     </ol>
                 </nav>
@@ -192,4 +198,4 @@ try {
     </div>
 </section>
 
-<?php require_once("../../header/footer.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/public/dashboard/header/footer.php"; ?>

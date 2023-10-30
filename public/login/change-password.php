@@ -1,6 +1,6 @@
 <?php
-require_once("../header/header.php");
-require_once("../functions.php");
+require_once $_SERVER['DOCUMENT_ROOT'] . "/public/header/header.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/public/functions.php';
 
 $data = readDatabaseFile(DB_FILE_PATH);
 $id = $_GET["id"] ?? "";
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["changePassword"])) {
                         <?php if (isset($errorMessage)) :  ?>
                             <div class="alert alert-danger"><?php echo $errorMessage; ?></div>
                         <?php endif; ?>
-                        <p>Password Generate: <span class="badge bg-success text-wrap text-white fs-3"><?php echo generatePassword(8); ?></span> </p>
+                        <p>Password Generate: <span class="badge bg-primary text-wrap text-white fs-4"><?php echo generatePassword(8); ?></span> </p>
                         <div class="form-outline">
                             <input type="password" name="oldPassword" id="newPass" class="form-control my-3" />
                             <label class="form-label" for="newPass">New password</label>
@@ -108,7 +108,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["changePassword"])) {
     </div>
 </main>
 <!--Main layout-->
-<?php
-require_once("../header/footer.php");
-
-?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/public/header/footer.php"; ?>

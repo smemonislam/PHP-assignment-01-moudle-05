@@ -1,6 +1,6 @@
 <?php
-require_once("../header/header.php");
-require_once("../functions.php");
+require_once $_SERVER['DOCUMENT_ROOT'] . "/public/header/header.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/public/functions.php';
 
 // Check if the user is already logged in, redirect if necessary
 if (isset($_SESSION['loggedin'])) {
@@ -107,8 +107,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["login"])) {
                         </div>
                         <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                             <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                                <h4 class="mb-4">We are more than just a company</h4>
-                                <p class="medium mb-0 text-justify">The Laravel Team is the driving force behind Laravel, a renowned PHP framework. Committed to development, security, and community engagement, they ensure Laravel's excellence and ongoing evolution.</p>
+                                <h4 class="mb-4">Login Information</h4>
+                                <p class="medium mb-0 text-justify">
+                                    Admin Email: admin@gmail.com <br>
+                                    password: Khulna2023@#
+                                </p>
+                                <hr>
+                                <p class="medium mb-0 text-justify">
+                                    User Email: user@gmail.com <br>
+                                    password: Khulna2023@#
+                                </p>
+                                <hr>
+                                <p class="medium mb-0 text-justify">
+                                    Manager Email: manager@gmail.com <br>
+                                    password: Khulna2023@#
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -118,6 +131,4 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["login"])) {
     </div>
 </section>
 
-
-
-<?php require_once("../header/footer.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/public/header/footer.php"; ?>

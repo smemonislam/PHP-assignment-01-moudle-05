@@ -1,7 +1,6 @@
 <?php
-
-require_once("../header/header.php");
-require_once("../functions.php");
+require_once $_SERVER['DOCUMENT_ROOT'] . "/public/header/header.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/public/functions.php';
 
 // Check if the user is already logged in, redirect if necessary
 if (isset($_SESSION['loggedin'])) {
@@ -38,8 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["reset"])) {
 <section class="reset mt-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <div class="card text-center" style="width: 300px;">
+            <div class="col-md-12">
+                <div class="card ms-auto me-auto" style="width: 500px;">
                     <div class="card-header h5 text-white bg-primary">Password Reset</div>
                     <div class="card-body px-5">
                         <p class="card-text py-2">
@@ -66,4 +65,4 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["reset"])) {
     </div>
 </section>
 
-<?php require_once("../header/footer.php"); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/public/header/footer.php"; ?>
