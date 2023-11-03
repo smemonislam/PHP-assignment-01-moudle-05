@@ -33,6 +33,13 @@ usort($allRegistrations, function ($a, $b) {
                     <a href="<?= BASE_URL ?>/dashboard/index.php" class="btn btn-primary">Back</a>
                 </div>
                 <div class="card-body">
+                    <?php if (isset($_GET['success'])) :  ?>
+                        <div class="alert alert-success">
+                            <?php
+                            echo $_GET['success'];
+                            ?>
+                        </div>
+                    <?php endif; ?>
                     <table class="table align-middle mb-0 bg-white">
                         <thead class="bg-light">
                             <tr>

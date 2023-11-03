@@ -23,6 +23,15 @@ $item = findDataByEmail($data, $_SESSION['email']);
     <section style="background-color: #eee;">
         <div class="container py-5">
             <div class="row">
+                <div class="col-12">
+                    <?php if (isset($_GET['success'])) :  ?>
+                        <div class="alert alert-success">
+                            <?php
+                            echo $_GET['success'];
+                            ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
                 <div class="col-md-6">
                     <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">

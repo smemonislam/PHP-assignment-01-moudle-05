@@ -4,7 +4,7 @@
         "username": "admin",
         "email": "admin@gmail.com",
         "role": "admin",
-        "password": "$2y$10$QPUguIPJ6xVFVy8C8GI\/suFn2nsPmT2RTYajUM4NvtUOwN64OMOWu"
+        "password": "$2y$10$WhGGUeju0mWckWEdTCVNjeMUPKqrhPlKgDtIf.SrSQHimQFiAtdLS"
     },
     {
         "id": "2",
@@ -19,5 +19,26 @@
         "email": "manager@gmail.com",
         "role": "manager",
         "password": "$2y$10$bmZMe.cda6E1Kmsn29YxVeByfl3C.ASyfN1HZk6DWzOL.0MkKte6i"
+    },
+    {
+        "id": 4,
+        "username": "emon",
+        "email": "emon@gmail.com",
+        "role": "admin",
+        "password": "$2y$10$Q\/1xQx5TpPJ\/JFfDSvFmDuJryzksMaN1orH.ivXCL07RiJMoMVR.i"
+    },
+    {
+        "id": 5,
+        "username": "prince",
+        "email": "prince@gmail.com",
+        "role": "manager",
+        "password": "$2y$10$Juxsu\/ogsgLQ6OZ17iPo1OZA8M.0x19FugMTbyP1DJfsHKs3LDFIW"
+    },
+    {
+        "id": "6",
+        "username": "ashikur",
+        "email": "ashikur@gmail.com",
+        "role": "admin",
+        "password": "$2y$10$e3zyKyBHl.J2sZtt.vHhVOH02OMtPqIXvqW0xhChpL4qKLUKADLBq"
     }
 ]
